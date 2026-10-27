@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penjana OPR | PPD Jerantut</title>
+<style>
+:root{--navy:#12345a;--blue:#1d5d91;--gold:#d6a640;--ink:#1f2937;--muted:#64748b;--line:#dbe3ec;--paper:#fff;--bg:#f2f5f9}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+header{background:linear-gradient(120deg,#102b4c,#1e5c8e);color:#fff;padding:24px 20px}
+.head{max-width:1240px;margin:auto;display:flex;align-items:center;gap:16px}.mark{width:54px;height:54px;border:2px solid #e7c46b;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:19px;color:#f6d982;flex-shrink:0}
+header h1{font-size:clamp(22px,3vw,31px);margin:0 0 4px}header p{margin:0;color:#d9e7f5}
+.wrap{max-width:1240px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:minmax(300px,430px) minmax(0,1fr);gap:20px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 5px 20px #1834510a;overflow:hidden}.panel-title{padding:17px 20px;border-bottom:1px solid var(--line);font-weight:800;color:var(--navy);display:flex;align-items:center;justify-content:space-between}.panel-body{padding:20px}
+label{display:block;font-size:13px;font-weight:700;color:#334155;margin:0 0 6px}.field{margin-bottom:14px}input,textarea,select{width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:10px 11px;font:inherit;font-size:14px;background:#fff;color:#172033}textarea{resize:vertical;min-height:76px}input:focus,textarea:focus,select:focus{outline:2px solid #9bc5eb;border-color:#4b8bc1}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.btn{border:0;border-radius:9px;padding:11px 14px;font-weight:700;font-size:13px;cursor:pointer}.primary{background:var(--navy);color:white}.secondary{background:#e8eef5;color:var(--navy)}.gold{background:#f8edcf;color:#684a05}.btn:hover{filter:brightness(.97)}
+.preview-wrap{padding:20px;background:#e9eef4;min-height:500px}.report{background:#fff;max-width:800px;margin:0 auto;min-height:900px;padding:26px;border:1px solid #d8e0e9;box-shadow:0 8px 28px #122b4612;display:flex;flex-direction:column;gap:13px}
+.report-head{background:var(--navy);color:#fff;padding:18px 20px;border-radius:8px;display:flex;align-items:center;gap:14px}.report-logo{width:55px;height:55px;border:1.5px solid #e5c36a;border-radius:8px;display:grid;place-items:center;color:#f7d77d;font-weight:800;flex-shrink:0;text-align:center;font-size:11px}.report-head h2{margin:0;font-size:21px;line-height:1.2}.report-head .org{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#d9e7f5;margin-bottom:5px}.report-head .subtitle{margin-top:5px;color:#e9f1fa;font-size:12px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.meta-item{border:1px solid var(--line);border-radius:7px;padding:9px}.meta-item small{display:block;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-size:9px;font-weight:800;margin-bottom:3px}.meta-item strong{font-size:11px;overflow-wrap:anywhere}
+.section{border-left:3px solid var(--gold);padding:1px 0 1px 11px}.section h3{font-size:12px;letter-spacing:.6px;color:var(--navy);margin:0 0 5px;text-transform:uppercase}.section p{margin:0;font-size:11px;white-space:pre-line}.section ul{padding-left:17px;margin:0;font-size:11px}.section li{margin:2px 0}
+.two-sections{display:grid;grid-template-columns:1fr 1fr;gap:16px}.footer{margin-top:auto;border-top:1px solid var(--line);padding-top:9px;display:flex;justify-content:space-between;gap:10px;font-size:9px;color:var(--muted)}
+.status{font-size:12px;color:#52657b;margin:0 0 12px}.badge{background:#edf5fb;color:#245782;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:700}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.report{min-height:unset}.preview-wrap{padding:10px}}
+@media(max-width:520px){.two{grid-template-columns:1fr;gap:0}.meta{grid-template-columns:1fr 1fr}.report{padding:14px}.report-head{padding:13px}.report-head h2{font-size:17px}.two-sections{grid-template-columns:1fr}.head{align-items:flex-start}}
+@media print{@page{size:A4;margin:8mm}body{background:#fff}.no-print,header,.wrap>.panel:first-child,.panel-title.preview-title{display:none!important}.wrap{display:block;margin:0;padding:0;max-width:none}.panel{border:0;box-shadow:none}.preview-wrap{padding:0;background:#fff}.report{max-width:none;width:100%;min-height:0;height:281mm;padding:5mm;border:0;box-shadow:none;gap:10px;page-break-inside:avoid}.report-head{padding:14px 16px}.report-head h2{font-size:19px}.meta-item{padding:7px}.section p,.section ul{font-size:10.5px}.section h3{font-size:11px}.footer{font-size:8px}}
+</style>
+</head>
+<body>
+<header class="no-print"><div class="head"><div class="mark">OPR</div><div><h1>Penjana OPR Automatik</h1><p>Templat laporan satu halaman • Kegunaan sekolah dan PPD Jerantut</p></div></div></header>
+<main class="wrap">
+<section class="panel no-print">
+<div class="panel-title">Maklumat Program <span class="badge">Isi & jana</span></div>
+<div class="panel-body">
+<p class="status">Lengkapkan maklumat di bawah. Pratonton OPR akan dikemas kini secara automatik.</p>
+<div class="field"><label for="org">Nama organisasi / unit</label><input id="org" value="PEJABAT PENDIDIKAN DAERAH JERANTUT"></div>
+<div class="field"><label for="program">Nama program *</label><input id="program" placeholder="Contoh: Bengkel Pemantapan Digital Guru"></div>
+<div class="two">
+<div class="field"><label for="date">Tarikh</label><input id="date" placeholder="Contoh: 27 Oktober 2026"></div>
+<div class="field"><label for="time">Masa</label><input id="time" placeholder="Contoh: 8.00 pagi – 4.30 petang"></div>
+</div>
+<div class="field"><label for="venue">Tempat</label><input id="venue" placeholder="Lokasi program"></div>
+<div class="two">
+<div class="field"><label for="organizer">Anjuran</label><input id="organizer" placeholder="Unit / sekolah / jabatan"></div>
+<div class="field"><label for="audience">Sasaran peserta</label><input id="audience" placeholder="Contoh: Guru sekolah rendah"></div>
+</div>
+<div class="two">
+<div class="field"><label for="count">Bilangan peserta</label><input id="count" placeholder="Contoh: 45 orang"></div>
+<div class="field"><label for="prepared">Disediakan oleh</label><input id="prepared" placeholder="Nama / jawatan"></div>
+</div>
+<div class="field"><label for="objective">Objektif program</label><textarea id="objective" placeholder="Masukkan objektif. Asingkan setiap objektif dengan baris baharu."></textarea></div>
+<div class="field"><label for="implementation">Butiran pelaksanaan</label><textarea id="implementation" placeholder="Ringkasan cara program dilaksanakan."></textarea></div>
+<div class="field"><label for="activities">Pengisian aktiviti</label><textarea id="activities" placeholder="Senaraikan aktiviti utama, satu aktiviti bagi setiap baris."></textarea></div>
+<div class="field"><label for="impact">Impak program</label><textarea id="impact" placeholder="Nyatakan hasil atau manfaat berdasarkan maklumat sebenar."></textarea></div>
+<div class="field"><label for="constraints">Kekangan</label><textarea id="constraints" placeholder="Jika tiada maklumat, tulis 'Belum dikenal pasti'."></textarea></div>
+<div class="field"><label for="improve">Cadangan penambahbaikan</label><textarea id="improve" placeholder="Cadangan praktikal untuk pelaksanaan akan datang."></textarea></div>
+<div class="field"><label for="logoText">Teks logo / unit (pilihan)</label><input id="logoText" placeholder="Contoh: UNIT PEMBELAJARAN DIGITAL"></div>
+<div class="btns">
+<button class="btn primary" type="button" onclick="updateReport()">Jana / Kemas Kini OPR</button>
+<button class="btn secondary" type="button" onclick="window.print()">Cetak / Simpan PDF</button>
+<button class="btn secondary" type="button" onclick="downloadHTML()">Muat Turun Aplikasi HTML</button>
+<button class="btn gold" type="button" onclick="clearForm()">Kosongkan Borang</button>
+</div>
+<p class="hint">Tip: Pilih “Cetak / Simpan PDF”, kemudian pilih “Save as PDF” untuk menyimpan laporan satu halaman.</p>
+</div>
+</section>
+<section class="panel">
+<div class="panel-title preview-title">Pratonton Laporan <span class="badge">A4 • Satu halaman</span></div>
+<div class="preview-wrap"><article class="report" id="report">
+<div class="report-head"><div class="report-logo" id="pLogo">PPD<br>JERANTUT</div><div><div class="org" id="pOrg">PEJABAT PENDIDIKAN DAERAH JERANTUT</div><h2 id="pProgram">LAPORAN ONE PAGE REPORT (OPR)</h2><div class="subtitle">LAPORAN RINGKAS PROGRAM / AKTIVITI</div></div></div>
+<div class="meta">
+<div class="meta-item"><small>Tarikh</small><strong id="pDate">Belum dinyatakan</strong></div>
+<div class="meta-item"><small>Masa</small><strong id="pTime">Belum dinyatakan</strong></div>
+<div class="meta-item"><small>Tempat</small><strong id="pVenue">Belum dinyatakan</strong></div>
+<div class="meta-item"><small>Peserta</small><strong id="pCount">Belum dinyatakan</strong></div>
+</div>
+<div class="section"><h3>01 · Objektif Program</h3><ul id="pObjective"><li>Lengkapkan objektif program pada borang.</li></ul></div>
+<div class="section"><h3>02 · Butiran Pelaksanaan</h3><p id="pImplementation">Ringkasan pelaksanaan program akan dipaparkan di sini.</p><p id="pOrganizer" style="margin-top:4px;color:#52657b"></p><p id="pAudience" style="color:#52657b"></p></div>
+<div class="section"><h3>03 · Pengisian Aktiviti</h3><ul id="pActivities"><li>Masukkan aktiviti utama program.</li></ul></div>
+<div class="section"><h3>04 · Impak Program</h3><p id="pImpact">Nyatakan hasil atau manfaat program berdasarkan maklumat sebenar.</p></div>
+<div class="two-sections">
+<div class="section"><h3>05 · Kekangan</h3><p id="pConstraints">Belum dikenal pasti.</p></div>
+<div class="section"><h3>06 · Cadangan Penambahbaikan</h3><p id="pImprove">Masukkan cadangan penambahbaikan.</p></div>
+</div>
+<div class="footer"><span id="pPrepared">Disediakan oleh: Belum dinyatakan</span><span>Dokumen pelaporan program • PPD Jerantut</span></div>
+</article></div>
+</section>
+</main>
+<script>
+const fields=['org','program','date','time','venue','organizer','audience','count','prepared','objective','implementation','activities','impact','constraints','improve','logoText'];
+function val(id){return document.getElementById(id).value.trim()}
+function fallback(v,t){return v||t}
+function lines(v){return v.split(/\n+/).map(x=>x.trim()).filter(Boolean)}
+function setList(id,text,empty){const el=document.getElementById(id);el.replaceChildren();const arr=lines(text);(arr.length?arr:[empty]).forEach(t=>{const li=document.createElement('li');li.textContent=t;el.appendChild(li)})}
+function updateReport(){
+ document.getElementById('pOrg').textContent=fallback(val('org'),'ORGANISASI / UNIT');
+ document.getElementById('pProgram').textContent=fallback(val('program'),'LAPORAN ONE PAGE REPORT (OPR)');
+ document.getElementById('pDate').textContent=fallback(val('date'),'Belum dinyatakan');
+ document.getElementById('pTime').textContent=fallback(val('time'),'Belum dinyatakan');
+ document.getElementById('pVenue').textContent=fallback(val('venue'),'Belum dinyatakan');
+ document.getElementById('pCount').textContent=fallback(val('count'),'Belum dinyatakan');
+ setList('pObjective',val('objective'),'Lengkapkan objektif program pada borang.');
+ document.getElementById('pImplementation').textContent=fallback(val('implementation'),'Butiran pelaksanaan belum dinyatakan.');
+ document.getElementById('pOrganizer').textContent=val('organizer')?'Anjuran: '+val('organizer'):'';
+ document.getElementById('pAudience').textContent=val('audience')?'Sasaran: '+val('audience'):'';
+ setList('pActivities',val('activities'),'Masukkan aktiviti utama program.');
+ document.getElementById('pImpact').textContent=fallback(val('impact'),'Impak belum dinyatakan.');
+ document.getElementById('pConstraints').textContent=fallback(val('constraints'),'Belum dikenal pasti.');
+ document.getElementById('pImprove').textContent=fallback(val('improve'),'Cadangan belum dinyatakan.');
+ document.getElementById('pPrepared').textContent='Disediakan oleh: '+fallback(val('prepared'),'Belum dinyatakan');
+ document.getElementById('pLogo').textContent=fallback(val('logoText'),'PPD JERANTUT');
+}
+function clearForm(){if(!confirm('Kosongkan semua maklumat borang?'))return;fields.forEach(id=>{const e=document.getElementById(id);e.value=(id==='org'?'PEJABAT PENDIDIKAN DAERAH JERANTUT':'')});updateReport()}
+function downloadHTML(){
+ const blob=new Blob(['<!DOCTYPE html>\n'+document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Penjana_OPR_PPD_Jerantut.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+fields.forEach(id=>document.getElementById(id).addEventListener('input',updateReport));
+updateReport();
+</script>
+</body>
+</html>
